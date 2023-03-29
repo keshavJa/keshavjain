@@ -1,0 +1,7 @@
+<template>
+    <div onclick={handleClick}>
+        <lightning-input type="number" label={currencyLabel} value={displayValue} 
+            step="0.01" min="0" max="1000000000" formatter="currency"
+            currency-code={currencyCode} variant="label-hidden"></lightning-input>
+    </div>
+</template>

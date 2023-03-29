@@ -1,7 +1,88 @@
 <!-- Adjust Quote Price -->
 <template>
-  <lightning-input-field
+
+    <lightning-modal-header label="Adjust quote price"></lightning-modal-header>
+    <lightning-modal-body>
+       <lightning-input 
+              type="number" 
+              name="currInputField" 
+              label="Adjusted Amount" 
+              value={totalQuoteAmt} 
+              formatter="currency" 
+              step="0.01"
+              onchange={handleCurrencyChange}
+            ></lightning-input>
+    </lightning-modal-body>
+
+    <lightning-modal-footer>
+        <lightning-button 
+              variant="neutral" 
+              label="Cancel" 
+              onclick={handleClose}
+        ></lightning-button>
+
+        <lightning-button 
+              variant="brand" 
+              class="slds-m-left_x-small" 
+              label="Save" 
+              type="submit" 
+              onclick={handleClose} 
+        ></lightning-button>
+    </lightning-modal-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--lightning-input-field
     field-name={adjustedAmountLabel}
     value={adjustedAmount}
-  ></lightning-input-field>
+  ></lightning-input-field >
+
+    <templte lwc:if={recordId}>
+      <lightning-quick-action-panel header="Adjust quote price">
+            <lightning-input 
+              type="number" 
+              name="input7" 
+              label="Number field with currency formatter" 
+              value={totalQuoteAmt} 
+              formatter="currency" 
+              step="0.01"
+              onchange={handleCurrencyChange}
+            ></lightning-input>
+
+        <div slot="footer">
+            <lightning-button 
+              variant="neutral" 
+              label="Cancel" 
+              onclick={handleCancel}
+            ></lightning-button>
+
+            <lightning-button 
+              variant="brand" 
+              class="slds-m-left_x-small" 
+              label="Save" 
+              type="submit" 
+              onclick={handleSubmit} 
+              disabled={disabled}
+            ></lightning-button>
+        </div>
+      </lightning-quick-action-panel>
+    </templte -->
 </template>
