@@ -9,26 +9,20 @@
     ></c-quote-total-summary>
     <span>
       <div class="slds-m-around_medium">
-        <c-edit-quote record-id={recordId} onsendtqa={handleSendTQAEvent}></c-edit-quote>
+        <c-edit-quote 
+          record-id={recordId} 
+          onsendtqa={handleSendTQAEvent}
+        ></c-edit-quote>
       </div>
     </span>
-      
-    <!--template lwc:if={showAQP}>
-      <span>
-        <div class="slds-m-around_medium">
-          <c-adjust-quote-price 
-            record-id={recordId} 
-            total-quote-amt={totalQuoteAmt} 
-            oncloseaqp={handleCloseAQP} 
-          ></c-adjust-quote-price>
-        </div>
-      </span>
-    </template -->
   </div>
 
-      <lightning-card title="Enter Currency Value">
-        <div class="slds-p-around_medium">
-            <c-currency-input currency-code="USD" numeric-value="1000"></c-currency-input>
-        </div>
+  <lightning-card title="Enter Currency Value">
+    <div class="slds-p-around_medium">
+      <c-currency-input 
+        currency-code="USD" 
+        numeric-value="1000"
+      ></c-currency-input>
+    </div>
     </lightning-card>
 </template>

@@ -48,30 +48,4 @@ export default class QuoteTotalSummary extends LightningElement {
             });
             this.dispatchEvent(evt);
     }
-
-
-    
-    /*handleAdjustQuote(){
-        
-        this.showModal = true;
-        console.log( 'handleAdjustQuote = ' +  this.showModal);
-        // Creates the event with the contact ID data.
-        const selectedEvent = new CustomEvent('showaqp', { detail: this.showModal });
-        console.log( 'handleAdjustQuote selectedEvent = ' +  selectedEvent);
-        // Dispatches the event.
-        this.dispatchEvent(selectedEvent);
-    } */
-    /*async handleAdjustQuote() {
-        const result = await AdjustQuotePriceModal.open({
-            // `label` is not included here in this example.
-            // it is set on lightning-modal-header instead
-            size: 'small',
-            description: 'Accessible description of modal\'s purpose',
-            content: 'Passed into content api',
-            totalQuoteAmt:this.totalQuoteAmt,
-        });
-        // if modal closed with X button, promise returns result = 'undefined'
-        // if modal closed with OK button, promise returns result = 'okay'
-        console.log(result);
-    } */
 }
