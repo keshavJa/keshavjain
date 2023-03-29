@@ -6,10 +6,11 @@
 import { LightningElement, api, wire, track } from "lwc";
 import getQuoteRecord from '@salesforce/apex/QuoteController.getQuoteDTORecord';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import updateQuote from '@salesforce/apex/QuoteController.updateQuote';
+import updateQuote from '@salesforce/apex/QuoteController.quoteDMLOperation';
 import { refreshApex } from '@salesforce/apex';
 import SAVE_RECORD_MESSAGE_LABEL from '@salesforce/label/c.Save_Record_Message';
 import SUCCESS_MESSAGE_TITLE_LABEL from '@salesforce/label/c.Success_Message_Title';
+const UPDATE_OPERATION = 'update';
 
 export default class EditQuote extends LightningElement {
   @api recordId;
@@ -51,7 +52,7 @@ handleEDChange(event){
 // METHOD TO UPDATE DATE ON QUOTE OBJECT
 handleSubmit(){ 
   if(this.isDateChange){
-    updateQuote({ quote : this.quoteToBeUpdate, recordId : this.recordId})
+    updateQuote({ quote : this.quoteToBeUpdate, recordId : this.recordId, operationType :UPDATE_OPERATION})
     .then(result =>{
       this.showNotification(SUCCESS_MESSAGE_TITLE_LABEL, SAVE_RECORD_MESSAGE_LABEL, 'success');
       refreshApex(this.refreshQuoteData);      

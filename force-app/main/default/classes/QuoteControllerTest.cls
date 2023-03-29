@@ -36,7 +36,7 @@ public with sharing class QuoteControllerTest {
     }
     
     @isTest
-    static void updateQuote_whenIDIAndQuoteIdNotNull_success(){
+    static void quoteDMLOperation_whenIDIAndQuoteIdNotNull_success(){
         Quote__c q = [  
                         SELECT Id, Name, StartDate__c, EndDate__c, CurrencyIsoCode, TotalQuotedAmount__c
                         FROM Quote__c
@@ -45,7 +45,7 @@ public with sharing class QuoteControllerTest {
         q.TotalQuotedAmount__c = 600;
 
         Test.startTest();
-            Quote__c qd = QuoteController.updateQuote(q, q.Id); 
+            Quote__c qd = QuoteController.quoteDMLOperation(q, q.Id, 'update'); 
         Test.stopTest();
 
         Assert.areEqual(600, qd.TotalQuotedAmount__c);

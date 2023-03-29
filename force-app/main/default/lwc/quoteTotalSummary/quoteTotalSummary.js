@@ -5,8 +5,9 @@
 
 import { LightningElement, api } from "lwc";
 import AdjustQuotePriceModal from 'c/adjustQuotePrice';
-import updateQuote from '@salesforce/apex/QuoteController.updateQuote';
+import updateQuote from '@salesforce/apex/QuoteController.quoteDMLOperation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+const UPDATE_OPERATION = 'update';
 
 export default class QuoteTotalSummary extends LightningElement {
     @api recordId;
@@ -24,7 +25,7 @@ export default class QuoteTotalSummary extends LightningElement {
             if(result){
                 if(this.totalQuoteAmt !== result){
                     this.quoteToBeUpdate['TotalQuotedAmount__c'] = result;
-                    updateQuote({ quote : this.quoteToBeUpdate, recordId : this.recordId})
+                    updateQuote({ quote : this.quoteToBeUpdate, recordId : this.recordId, operationType :UPDATE_OPERATION})
                     .then(result =>{  
                         this.dispatchEvent(new CustomEvent('refresheditquote')); 
                         this.showNotification('', 'Amount Updated Successfully !', 'success');  
